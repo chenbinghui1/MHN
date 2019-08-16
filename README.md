@@ -54,16 +54,15 @@ This code is developed based on pytorch framework and the [baseline](https://git
 3. Go into the MHN/ dir and mkdir datasets/, then unzip the downloaded datasets.zip to datasets/
 4. Run prepare.py to preprocess the datasets.
 5. Then you can try our methods
-<br>
-`DE+ERA`<br>
+##### IDE+ERA
 ```
         python3 train_ide.py --gpu_ids 0 --name ide --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
 ```     
-`IDE+MHN6`
+##### IDE+MHN6
 ```
         python3 train_ide.py --gpu_ids 0 --name ide_mhn6 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 1.4 --parts 6 --mhn
 ```     
-`PCB+ERA`
+##### PCB+ERA
 ```
 		python3 train_smallPCB.py --gpu_ids 0 --name pcb --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
 ```
