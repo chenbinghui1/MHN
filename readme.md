@@ -55,7 +55,7 @@ This code is developed based on pytorch framework and the [baseline](https://git
 4. Run prepare.py to preprocess the datasets.
 5. Then you can try our methods
 <br>
-`DE+ERA`
+`DE+ERA`<br>
 ```
         python3 train_ide.py --gpu_ids 0 --name ide --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
 ```     
