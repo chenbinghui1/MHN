@@ -15,7 +15,7 @@ This code is developed based on pytorch framework and the [baseline](https://git
 - Aug 16, 2019
   * The codes of training and testing for our [ICCV19 paper](http://bhchen.cn) are released.
   * We have cleared up and tested the codes on Market, Duke datasets, the expected retrieval performances are as follows:
-
+  
   |Market | R@1 | R@5| R@10 | mAP | Reference |
   | -------- | ----- | ---- | ---- | ---- | ---- |
   | IDE+ERA | 89.9% | 96.4%| 97.6%| 75.6%|  `train_ide.py` |
@@ -34,23 +34,27 @@ This code is developed based on pytorch framework and the [baseline](https://git
 
 ### Files
 - train_ide.py test_ide.py
+  * files for training and testing on IDE framework
 
 - train_smallPCB.py test_smallPCB.py
+  * files for training and testing on PCB framework, when using MHN, the maximized order is limited to 4 due to the GPU memory.
 
 - train_smallPCB_multiGPU.py test_smallPCB.py
+  * files for training, if you want to test MHN6, please use this file for training with multi gpus. The testing file is also test_smallPCB.py
 
 - auto_test.sh
+  * sh testing code.
 ### Prerequisites
 * Pytorch(0.4.0+)
 * python3.6
 * 2GPUs, each > 11G
 ### Train_Model
-1. The Installation is completely the same as [Caffe](http://caffe.berkeleyvision.org/). Please follow the [installation instructions](http://caffe.berkeleyvision.org/installation.html). Make sure you have correctly installed before using our code. 
-2. Download the training images **CUB** {[google drive](https://drive.google.com/open?id=1V_5tS4YgyMRxUM7QHINn7aRYizwjxwmC), [baidu](https://pan.baidu.com/s/1X4W1xucDBxZafITvPF8SXQ)(psw:w3vh)} and move it to $(your_path). The images are preprossed the same as [Lifted Loss](https://github.com/rksltnl/Deep-Metric-Learning-CVPR16/), i.e. with zero paddings.
-3. Download the **training list**(400M) {[google drive](https://drive.google.com/open?id=1P2lUicV-nMchMU_aP6JbgzOibOG1o-F6), [baidu](https://pan.baidu.com/s/1-NH4rpkYwbLjR0tIkr30nA) (psw:xbct)}, and move it to folder "~/Hybrid-Attention-based-Decoupled-Metric-Learning-master/examples/CUB/". (Or you can create your own list by randomly selecting 65 classes with 2 samples each class.)
-4. Download [googlenetV1](http://dl.caffe.berkeleyvision.org/bvlc_googlenet.caffemodel) (used for U512) and **3nets** {[google drive](https://drive.google.com/open?id=1boQISUyXaV77qCS0u5Nmlv6dckuN25mM), [baidu](https://pan.baidu.com/s/10Q1wPeHMYtXEJ5cqY9GgPg)(psw:dmev)} (used for DeML3-3_512) to folder "~/Hybrid-Attention-based-Decoupled-Metric-Learning-master/examples/CUB/pre-trained-model/". (each stream of 3nets model is intialized by the same googlenetV1 model)
-5. Modify the images path by changing "root_folder" into $(your_path) in all *.prototxt .
-6. Then you can train our baseline method **U512** and the proposed **DeML(I=3,J=3)** by running
+1. Clone our code.
+2. Download the training images {[google drive](https://drive.google.com/file/d/1X6JB2Cm4kMlwor5GjGS9vXKK9rIgTTDT/view?usp=sharing), [baidu](https://pan.baidu.com/s/1-A_Ibc2sWKV85nCwJp0kKA)}, including **Market1501, DukeMTMC, CUHK03-NP**.
+3. Go into the MHN/ dir and mkdir datasets/, then unzip the downloaded datasets.zip to datasets/
+4. Run prepare.py to preprocess the datasets.
+5. Then you can try our methods
+
 ```
         cd ~/Hybrid-Attention-based-Decoupled-Metric-Learning-master/examples/CUB/U512
         ./finetune_U512.sh
@@ -93,12 +97,6 @@ You are encouraged to cite the following papers if this work helps your research
     booktitle = {AAAI Conference on Artificial Intelligence},
     year = {2019}
     }
-    @inproceedings{songCVPR16,
-    Author = {Hyun Oh Song and Yu Xiang and Stefanie Jegelka and Silvio Savarese},
-    Title = {Deep Metric Learning via Lifted Structured Feature Embedding},
-    Booktitle = {Computer Vision and Pattern Recognition (CVPR)},
-    Year = {2016}
-    }
 ### License
 Copyright (c) Binghui Chen
 
@@ -116,28 +114,4 @@ Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included
 in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
 
-***
-
-#Market
-IDE+ERA           89.9 96.4 97.6 mAP75.6
-IDE_MHN6 alpha1.4 93.1 97.7 98.7 mAP83.2
-
-PCB+ERA           91.7 97.4 98.3 mAP76.4
-PCB_MHN4 alpha2   94.3 98.0 98.8 mAP83.9
-PCB_MHN6 alpha2   94.8 98.3 98.9 mAP85.2
-
-#Duke
-IDE+ERA           82.7 91.8 94.1 mAP68.1
-IDE_MHN6 alpha1.4 87.8 94.2 95.8 mAP74.6
-
-PCB+ERA           82.9 91.7 93.8 mAP67.7
-PCB_MHN4 alpha2   88.5 94.5 96.1 mAP76.9
-PCB_MHN6 alpha2   89.5 94.7 96.1 mAP77.5
