@@ -43,7 +43,7 @@ This code is developed based on pytorch framework and the [baseline](https://git
   * files for training, if you want to test MHN6, please use this file for training with multi gpus. The testing file is also test_smallPCB.py
 
 - auto_test.sh
-  * sh testing code.
+  * auto-testing code.
 ### Prerequisites
 * Pytorch(0.4.0+)
 * python3.6
@@ -54,16 +54,26 @@ This code is developed based on pytorch framework and the [baseline](https://git
 3. Go into the MHN/ dir and mkdir datasets/, then unzip the downloaded datasets.zip to datasets/
 4. Run prepare.py to preprocess the datasets.
 5. Then you can try our methods
-
+'IDE+ERA'
 ```
-        cd ~/Hybrid-Attention-based-Decoupled-Metric-Learning-master/examples/CUB/U512
-        ./finetune_U512.sh
+        python3 train_ide.py --gpu_ids 0 --name ide --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
 ```     
-and
+'IDE+MHN6'
 ```
-        cd ~/Hybrid-Attention-based-Decoupled-Metric-Learning-master/examples/CUB/DeML3-3_512
-        ./finetune_DeML3-3_512.sh
+        python3 train_ide.py --gpu_ids 0 --name ide_mhn6 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 1.4 --parts 6 --mhn
 ```     
+'PCB+ERA'
+```
+		python3 train_smallPCB.py --gpu_ids 0 --name pcb --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
+```
+'PCB+MHN4'
+```
+		python3 train_smallPCB.py --gpu_ids 0 --name pcb_mhn4 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 2 --parts 4 --mhn
+```
+'PCB+MHN6'
+```
+		python3 train_smallPCB_multiGPU.py --gpu_ids 0,1 --name pcb_mhn6 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 2 --parts 6 --mhn
+```
 the trained models are stored in folder "run_U512/" and "run_DeML3-3_512/" respectively.
 ### Extract_DeepFeature
 1. run the following code for **U512** and **DeML(I=3,J=3)** respectively.
