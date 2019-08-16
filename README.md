@@ -56,46 +56,46 @@ This code is developed based on pytorch framework and the [baseline](https://git
 5. Then you can try our methods
 ##### IDE+ERA
 ```
-        python3 train_ide.py --gpu_ids 0 --name ide --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
+python3 train_ide.py --gpu_ids 0 --name ide --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
 ```     
 ##### IDE+MHN6
 ```
-        python3 train_ide.py --gpu_ids 0 --name ide_mhn6 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 1.4 --parts 6 --mhn
+python3 train_ide.py --gpu_ids 0 --name ide_mhn6 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 1.4 --parts 6 --mhn
 ```     
 ##### PCB+ERA
 ```
-		python3 train_smallPCB.py --gpu_ids 0 --name pcb --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
+python3 train_smallPCB.py --gpu_ids 0 --name pcb --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler
 ```
 ##### PCB+MHN4
 ```
-		python3 train_smallPCB.py --gpu_ids 0 --name pcb_mhn4 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 2 --parts 4 --mhn
+python3 train_smallPCB.py --gpu_ids 0 --name pcb_mhn4 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 2 --parts 4 --mhn
 ```
 ##### PCB+MHN6
 ```
-		python3 train_smallPCB_multiGPU.py --gpu_ids 0,1 --name pcb_mhn6 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 2 --parts 6 --mhn
+python3 train_smallPCB_multiGPU.py --gpu_ids 0,1 --name pcb_mhn6 --data_dir datasets/Market/datasets/pytorch/ --train_all --batchsize 32 --erasing_p 0.4 --balance_sampler --alpha 2 --parts 6 --mhn
 ```
 the trained models are stored in folder "model/($name)".
 ### Evaluation
 We provide the auto-testing code in auto_test.sh, you can replace the corresponding code for testing. For example,
 ##### For IDE+ERA
 ```
-		python3 test_ide.py --gpu_ids $gpu_ids --name ide --test_dir datasets/Market/datasets/pytorch/ --batchsize 32 --which_epoch $i
+python3 test_ide.py --gpu_ids $gpu_ids --name ide --test_dir datasets/Market/datasets/pytorch/ --batchsize 32 --which_epoch $i
 ```
 ##### For IDE+MHN6
 ```
-		python3 test_ide.py --gpu_ids $gpu_ids --name ide_mhn6 --test_dir datasets/Market/datasets/pytorch/ --batchsize 20 --which_epoch $i --mhn --parts 6
+python3 test_ide.py --gpu_ids $gpu_ids --name ide_mhn6 --test_dir datasets/Market/datasets/pytorch/ --batchsize 20 --which_epoch $i --mhn --parts 6
 ```
 ##### For PCB+ERA
 ```
-		python3 test_smallPCB.py --gpu_ids $gpu_ids --name pcb --test_dir datasets/Market/datasets/pytorch/ --batchsize 32 --which_epoch $i
+python3 test_smallPCB.py --gpu_ids $gpu_ids --name pcb --test_dir datasets/Market/datasets/pytorch/ --batchsize 32 --which_epoch $i
 ```
 ##### For PCB+MHN4
 ```
-		python3 test_smallPCB.py --gpu_ids $gpu_ids --name pcb_mhn4 --test_dir datasets/Market/datasets/pytorch/ --batchsize 15 --which_epoch $i --mhn --parts 4
+python3 test_smallPCB.py --gpu_ids $gpu_ids --name pcb_mhn4 --test_dir datasets/Market/datasets/pytorch/ --batchsize 15 --which_epoch $i --mhn --parts 4
 ```
 ##### For PCB+MHN6
 ```
-		python3 test_smallPCB.py --gpu_ids $gpu_ids --name pcb_mhn6 --test_dir datasets/Market/datasets/pytorch/ --batchsize 10 --which_epoch $i --mhn --parts 6
+python3 test_smallPCB.py --gpu_ids $gpu_ids --name pcb_mhn6 --test_dir datasets/Market/datasets/pytorch/ --batchsize 10 --which_epoch $i --mhn --parts 6
 ```
 ### Contact 
 - [Binghui Chen](http://bhchen.cn)
