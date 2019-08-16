@@ -1,0 +1,15 @@
+#Market
+IDE+ERA           89.9 96.4 97.6 mAP75.6
+IDE_MHN6 alpha1.4 93.1 97.7 98.7 mAP83.2
+
+PCB+ERA           91.7 97.4 98.3 mAP76.4
+PCB_MHN4 alpha2   94.3 98.0 98.8 mAP83.9
+PCB_MHN6 alpha2   94.8 98.3 98.9 mAP85.2
+
+#Duke
+IDE+ERA           82.7 91.8 94.1 mAP68.1
+IDE_MHN6 alpha1.4 87.8 94.2 95.8 mAP74.6
+
+PCB+ERA           82.9 91.7 93.8 mAP67.7
+PCB_MHN4 alpha2   88.5 94.5 96.1 mAP76.9
+PCB_MHN6 alpha2   89.5 94.7 96.1 mAP77.5
