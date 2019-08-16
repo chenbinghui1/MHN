@@ -103,10 +103,10 @@ We provide the auto-testing code in auto_test.sh, you can replace the correspond
 ### Citation
 You are encouraged to cite the following papers if this work helps your research. 
 
-    @inproceedings{chen2019hybrid,
-      title={Hybrid-Attention based Decoupled metric Learning for Zero-Shot Image Retrieval},
-      author={Chen, Binghui and Deng, Weihong},
-      booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+    @inproceedings{chen2019mixed,
+      title={Mixed High-Order Attention Network for Person Re-Identification},
+      author={Chen, Binghui and Deng, Weihong and Hu, Jiani},
+      booktitle={Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
       year={2019},
     }
     @InProceedings{chen2019energy,
