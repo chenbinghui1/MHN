@@ -9,7 +9,7 @@ download_path = 'datasets/Duke/datasets'
 
 if not os.path.isdir(download_path):
     print('please change the download_path')
-
+os.mkdir('model')
 save_path = download_path + '/pytorch'
 if not os.path.isdir(save_path):
     os.mkdir(save_path)
