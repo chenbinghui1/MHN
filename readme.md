@@ -15,6 +15,7 @@ This code is developed based on pytorch framework and the [baseline](https://git
 - Aug 16, 2019
   * The codes of training and testing for our [ICCV19 paper](http://bhchen.cn) are released.
   * We have cleared up and tested the codes on Market, Duke datasets, the expected retrieval performances are as follows:
+  
   |Market | R@1 | R@5| R@10 | mAP | Reference |
   | -------- | ----- | ---- | ---- | ---- | ---- |
   | IDE+ERA | 89.9% | 96.4%| 97.6%| 75.6%|  `train_ide.py` |
