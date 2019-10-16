@@ -293,9 +293,16 @@ print("balance_sampler_ : ",balance_sampler_)
 criterion = nn.CrossEntropyLoss()
 ignored_params = list(map(id, model.model.parameters() ))       
 base_params = filter(lambda p: id(p) not in ignored_params, model.parameters())
-optimizer_ft = optim.SGD([
+if not opt.mhn:
+    optimizer_ft = optim.SGD([
              {'params': model.model.parameters(), 'lr': 0.01},
              {'params': base_params, 'lr': 0.1}
+         ], weight_decay=5e-4, momentum=0.9, nesterov=True)
+else:
+    optimizer_ft = optim.SGD([
+             {'params': model.model.parameters(), 'lr': 0.01},
+             {'params': base_params, 'lr': 0.1},
+             {'params': criterion_div.parameters(), 'lr': 0.01},
          ], weight_decay=5e-4, momentum=0.9, nesterov=True)
 
 
