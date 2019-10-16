@@ -302,7 +302,7 @@ else:
     optimizer_ft = optim.SGD([
              {'params': model.model.parameters(), 'lr': 0.01},
              {'params': base_params, 'lr': 0.1},
-             {'params': criterion_div.parameters(), 'lr': 0.01},
+             {'params': criterion_div.parameters(), 'lr': 0.01}
          ], weight_decay=5e-4, momentum=0.9, nesterov=True)
 
 
