@@ -313,17 +313,11 @@ criterion = nn.CrossEntropyLoss()
 print("balance_sampler_ : ",balance_sampler_)
 ignored_params = list(map(id, model.module.model.parameters() ))       
 base_params = filter(lambda p: id(p) not in ignored_params, model.module.parameters())
-if not opt.mhn:
-    optimizer_ft = optim.SGD([
+optimizer_ft = optim.SGD([
              {'params': model.module.model.parameters(), 'lr': 0.01},
              {'params': base_params, 'lr': 0.1}
          ], weight_decay=5e-4, momentum=0.9, nesterov=True)
-else:
-    optimizer_ft = optim.SGD([
-             {'params': model.module.model.parameters(), 'lr': 0.01},
-             {'params': base_params, 'lr': 0.1},
-             {'params': criterion_div.parameters(), 'lr': 0.01}
-         ], weight_decay=5e-4, momentum=0.9, nesterov=True)
+
 
 # Decay LR by a factor of 0.1 every 40 epochs
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=20, gamma=0.1)
